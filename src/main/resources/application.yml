@@ -29,4 +29,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
   instance:
-    prefer-ip-address: true
+    prefer-ip-address: false
+    hostname: ${RENDER_EXTERNAL_HOSTNAME:localhost}
+    non-secure-port: ${SERVER_PORT:8081}
+    instance-id: ${spring.application.name}:${RENDER_INSTANCE_ID:${random.value}}
