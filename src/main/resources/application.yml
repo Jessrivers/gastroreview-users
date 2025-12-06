@@ -5,9 +5,9 @@ spring:
   application:
     name: users-service
   datasource:
-    url: jdbc:${DATABASE_URL:postgresql://localhost:5432/users}
-    username: ${DATABASE_USERNAME:postgres}
-    password: ${DATABASE_PASSWORD:postgres}
+    url: ${DATABASE_URL:jdbc:postgresql://ep-crimson-waterfall-a5g2m7gj.us-east-2.aws.neon.tech:5432/neondb?sslmode=require&channelBinding=require}
+    username: ${DATABASE_USERNAME:neondb_owner}
+    password: ${DATABASE_PASSWORD:npg_VkPsxdU17tEG}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -29,7 +29,6 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
   instance:
-    prefer-ip-address: false
-    hostname: ${RENDER_EXTERNAL_HOSTNAME:localhost}
-    non-secure-port: ${SERVER_PORT:8081}
+    prefer-ip-address: true
+    non-secure-port: ${PORT:8081}
     instance-id: ${spring.application.name}:${RENDER_INSTANCE_ID:${random.value}}
